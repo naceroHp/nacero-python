@@ -1,0 +1,18 @@
+names=input("Enter the first and last names of your friends  separated by commas:")
+list_names=names.split(",")
+print(list_names)
+abbreviated_names=[]
+for name in list_names :
+  paret_name=name.split()
+  print(paret_name)
+  first_name=paret_name[0]
+  last_name=paret_name[1]
+  first_letter=first_name[0]
+  last_lettter=last_name[0]
+  abbreviated_name=first_letter+"."+last_lettter+"."
+  abbreviated_names.append(abbreviated_name)
+print("Abbreviated names are:")
+for x in abbreviated_names:
+    print(x)
+
+ 
