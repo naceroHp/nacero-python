@@ -1,0 +1,87 @@
+import random
+
+HANGMANPICS = ['''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========''']
+list=["karim","ayman","nacero","amer"]
+word=random.choice(list)
+choice_word=["_"]*len(word)
+print("**WELCOM IN HAGMAN GAME**")
+print(" ".join(choice_word))
+print(HANGMANPICS[0])
+guessed_letter=[]
+lives=6
+while "_" in choice_word and lives>0:
+ guessed=input(" Entre the  guess letter:").lower()
+ if guessed in guessed_letter:
+  print("you all ready gessed that . try again")
+  print(f"you have {lives} more tris")
+  continue
+
+ guessed_letter.append(guessed)
+ if guessed not in word:
+   lives-=1
+   print(HANGMANPICS[6-lives])
+ else:
+   for position in range(len(choice_word)):
+    if word[position]==guessed:
+      choice_word[position]=guessed
+      
+ print(" ".join(choice_word))  
+ print(f"you have {lives} more tries")
+if lives==0:
+    print("""***YOU LOSE***""")
+    print(HANGMANPICS[-1])
+else:
+  print("""***YOU WIN***""")
+    
+   
+
+
